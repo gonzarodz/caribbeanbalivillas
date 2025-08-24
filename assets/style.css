@@ -1,0 +1,739 @@
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000d2;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1.5s ease; /* Increased from 0.5s to 1.5s for a more subtle fade */
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-logo {
+    width: 300px;
+    height: auto;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Add fade-in effect for slide content */
+.slide-content {
+    opacity: 0; /* Start with hidden content */
+    transition: opacity 4s ease; /* Same duration as loading screen fade-out */
+}
+
+.slide-content.fade-in {
+    opacity: 1; /* Fully visible when class is added */
+}
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    height: 90px; /* Fixed height for the navbar */
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none; /* Prevents interaction with hidden navbar */
+}
+
+.navbar.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Enables interaction when visible */
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    grid-column: 2;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    overflow: visible; /* Allow logo to exceed container boundaries */
+}
+
+.nav-menu {
+    grid-column: 3;
+    justify-self: end;
+}
+
+
+.logo-img {
+    height: 80px; /* Reduced logo size to fit navbar */
+    transition: transform 0.3s ease;
+    max-width: none;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Keep the old logo style for compatibility */
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 1.5rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f8d488;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* Hero Section with Carousel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    width: 300%; /* 100% * number of slides */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 33.33%; /* 100% / number of slides */
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    top: 40%; /* Moved up from 50% to position content higher */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    max-width: 800px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 0; /* No gap between elements */
+    padding: 0 20px; /* Add padding for mobile */
+}
+
+/* Make flower image much bigger and position it above main content */
+.slide-content img.flower {
+    width: 200px; /* Make flower bigger */
+    margin-bottom: 30px; /* Space between flower and main content */
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Main content container to group the welcome text, logos and button */
+.main-content-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* Smaller gap between these specific elements */
+}
+
+.slide-content p.welcome {
+    font-family: 'Copperplate';
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin: 0;
+    font-weight: 100;
+}
+
+.slide-content img.name {
+    width: 100%; /* Make name logo bigger */
+    width: 500px;
+    margin-bottom: 0;
+}
+
+.slide-content img.villa {
+    width: 100%; /* Make villa image bigger */
+    width: 500px;
+    margin-bottom: 5px;
+}
+
+/* Mobile responsiveness for slide content */
+@media (max-width: 768px) {
+    .slide-content {
+        left: 50%; /* Keep it centered */
+        transform: translate(-50%, -50%); /* Maintain the centering transform */
+        width: 90%; /* Control the width */
+    }
+    
+    .slide-content img.flower {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+    
+    .slide-content p.welcome {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .slide-content img.name {
+        width: 95%;
+        max-width: 400px; /* Limit the width on smaller screens */
+    }
+    
+    .slide-content img.villa {
+        width: 90%;
+        max-width: 400px; /* Limit the width on smaller screens */
+    }
+    
+    .main-content-group {
+        gap: 10px;
+        width: 100%; /* Make sure it uses full width of parent */
+        align-items: center; /* Center all items */
+    }
+}
+
+@media (max-width: 576px) {
+    .slide-content img.flower {
+        width: 150px;
+        margin-bottom: 15px;
+    }
+    
+    .slide-content p.welcome {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+}
+
+.slide-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 1.8rem;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+@media (max-width: 576px) {
+    .btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+    }
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 100;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #fff;
+}
+
+/* Section Styles */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    scroll-margin-top: 100px; /* Offset for fixed navbar */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #f8d488;
+    margin: 0.8rem auto;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .slide-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .slide-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 65px;
+    }
+    
+    .navbar {
+        height: 80px;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transform: translateY(-200%);
+        transition: transform 0.4s ease;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+    }
+    
+    .slide-content h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .logo-img {
+        height: 60px;
+    }
+    
+    .navbar {
+        height: 70px;
+    }
+    
+    .slide-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .slide-content p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding: 4rem 2rem 1rem;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #f8d488;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #f8d488;
+    margin-top: 0.5rem;
+}
+
+.footer-section p {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section i {
+    margin-right: 10px;
+    color: #f8d488;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+} */
+
+.social-icon:hover {
+    /* background-color: #f8d58847;
+    color: #333; */
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3::after {
+        margin: 0.5rem auto 0;
+    }
+    
+    .footer-section p {
+        justify-content: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* Fix for social icons alignment */
+.footer-section.social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .footer-section.social {
+        align-items: center;
+    }
+}
+
+/* Rooms Section Styles */
+.rooms-section {
+    background-color: #f8f6f0; /* Light beige background */
+    margin: 0 auto;
+    max-width: none;
+    width: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.rooms-section .section-title,
+.rooms-section > p {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rooms-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.room-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.room-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 1.5rem;
+    background-color: #fff;
+}
+
+.room-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.room-info p {
+    margin-bottom: 1.2rem;
+    color: #666;
+}
+
+.btn-sm {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* Gallery Section Styles */
+.gallery-section {
+    background-color: #f9f9f9;
+    margin: 0 auto;
+    max-width: none;
+    width: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.gallery-section .section-title,
+.gallery-section > p {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 200px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .rooms-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Modal/Lightbox for Gallery Images */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.modal-content {
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f8d488;
+}
