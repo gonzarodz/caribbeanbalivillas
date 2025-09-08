@@ -24,15 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     const navItems = document.querySelectorAll('.nav-links a');
-    const hero = document.getElementById('hero');
-    const aboutSection = document.getElementById('about');
+    const learnBtn = document.querySelector('.btn');
     
     // Function to check scroll position and show/hide navbar
     function checkScroll() {
-        const heroBottom = hero.getBoundingClientRect().bottom;
-        const aboutTop = aboutSection.getBoundingClientRect().top;
+        const learnBottom = learnBtn.getBoundingClientRect().bottom;
         
-        if (aboutTop <= 90) {
+        if (learnBottom <= 90) {
             // When about section is visible, show navbar
             navbar.classList.add('visible');
         } else {
