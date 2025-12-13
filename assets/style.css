@@ -640,6 +640,83 @@ body {
     font-size: 0.9rem;
 }
 
+/* Video Section Styles */
+.video-section {
+    background-color: #f8f6f0; /* Light beige background like rooms section */
+    margin: 0 auto;
+    max-width: none;
+    width: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.video-section .section-title,
+.video-section > p {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.video-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-placeholder {
+    background-color: #0a0a0a;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+}
+
+.video-placeholder i {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+.video-placeholder p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.video-info p {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
 /* Gallery Section Styles */
 .gallery-section {
     background-color: #fff;

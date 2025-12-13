@@ -1,4 +1,71 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Video placeholder interaction
+    const videoPlaceholder = document.querySelector('.video-placeholder');
+    if (videoPlaceholder) {
+        videoPlaceholder.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const icon = this.querySelector('i');
+            const notification = document.createElement('div');
+            
+            notification.className = 'video-notification';
+            notification.textContent = 'Video will be available soon';
+            notification.style.position = 'absolute';
+            notification.style.bottom = '20px';
+            notification.style.left = '0';
+            notification.style.right = '0';
+            notification.style.textAlign = 'center';
+            notification.style.backgroundColor = 'rgba(0,0,0,0.7)';
+            notification.style.color = 'white';
+            notification.style.padding = '10px';
+            notification.style.borderRadius = '4px';
+            notification.style.margin = '0 auto';
+            notification.style.maxWidth = '80%';
+            notification.style.animation = 'fadeOut 2s forwards';
+            
+            // Remove existing notifications
+            const existingNotification = this.querySelector('.video-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            this.appendChild(notification);
+            
+            // Remove notification after animation
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        });
+        
+        // Add hover effect styles
+        videoPlaceholder.style.cursor = 'pointer';
+        videoPlaceholder.style.transition = 'all 0.3s ease';
+        
+        videoPlaceholder.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('i');
+            if (icon) {
+                icon.style.transform = 'scale(1.2)';
+                icon.style.transition = 'transform 0.3s ease';
+            }
+        });
+        
+        videoPlaceholder.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('i');
+            if (icon) {
+                icon.style.transform = 'scale(1)';
+            }
+        });
+    }
+    
+    // Add keyframes for fadeOut animation for video notification
+    const style = document.createElement('style');
+    style.textContent = `
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        70% { opacity: 1; }
+        100% { opacity: 0; }
+    }`;
+    document.head.appendChild(style);
+    
     // Loading screen
     const loadingScreen = document.querySelector('.loading-screen');
     const slideContent = document.querySelector('.slide-content');
