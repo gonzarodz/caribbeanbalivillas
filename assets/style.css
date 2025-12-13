@@ -454,7 +454,7 @@ body {
 
 /* Footer Styles */
 .footer {
-    background-color: #0a0a0a;
+    background-color: #0d1a06;
     color: #fff;
     padding: 4rem 2rem 1rem;
     border-top-left-radius: 30px;
@@ -642,7 +642,7 @@ body {
 
 /* Video Section Styles */
 .video-section {
-    background-color: #f8f6f0; /* Light beige background like rooms section */
+    background-color: #ffffff; /* Light beige background like rooms section */
     margin: 0 auto;
     max-width: none;
     width: 100%;
@@ -719,7 +719,7 @@ body {
 
 /* Gallery Section Styles */
 .gallery-section {
-    background-color: #fff;
+    background-color: #f8f6f0;
     margin: 0 auto;
     max-width: none;
     width: 100%;
