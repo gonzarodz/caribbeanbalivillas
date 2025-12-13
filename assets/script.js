@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Video section enhancements
+    const videoPlayer = document.querySelector('.video-player video');
+    if (videoPlayer) {
+        // Optional: Add play button overlay if needed
+        videoPlayer.addEventListener('loadedmetadata', function() {
+            console.log('Video metadata loaded successfully');
+        });
+        
+        // Optional: Track video plays
+        videoPlayer.addEventListener('play', function() {
+            console.log('Video started playing');
+        });
+    }
+    
     // Loading screen
     const loadingScreen = document.querySelector('.loading-screen');
     const slideContent = document.querySelector('.slide-content');

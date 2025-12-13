@@ -333,7 +333,7 @@ body {
 }
 
 .dot.active {
-    background-color: #fff;
+    background-color: #e9e9e9;
 }
 
 /* Section Styles */
@@ -346,10 +346,11 @@ body {
 
 /* About Section Styles */
 #about {
-    background-color: #fff; 
+    background-color: #1a2913; 
     margin: 0 auto;
     max-width: none;
     width: 100%;
+    color: #fff;
 }
 
 #about .section-title,
@@ -454,7 +455,7 @@ body {
 
 /* Footer Styles */
 .footer {
-    background-color: #0a0a0a;
+    background-color: #0d1a06;
     color: #fff;
     padding: 4rem 2rem 1rem;
     border-top-left-radius: 30px;
@@ -640,9 +641,83 @@ body {
     font-size: 0.9rem;
 }
 
+/* Video Section Styles */
+.video-section {
+    background-color: #ffffff; /* Light beige background like rooms section */
+    margin: 0 auto;
+    max-width: none;
+    width: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.video-section .section-title,
+.video-section > p {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.video-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-player {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: #0a0a0a;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.video-player video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.video-info p {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
 /* Gallery Section Styles */
 .gallery-section {
-    background-color: #fff;
+    background-color: #f8f6f0;
     margin: 0 auto;
     max-width: none;
     width: 100%;
@@ -700,6 +775,10 @@ body {
 
 @media (max-width: 576px) {
     .rooms-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-container {
         grid-template-columns: 1fr;
     }
     
