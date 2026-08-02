@@ -3,31 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caribbean Bali | Villas</title>
+    <title>Caribbean Bali Villas | Luxury Villas in Puerto Rico</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Caribbean Bali Villas offers a unique fusion of Balinese architecture and Caribbean hospitality on the west coast of Puerto Rico. Luxury villas with private pools, near Crash Boat beach and Rincón.">
+    <meta name="keywords" content="luxury villas, Puerto Rico, Caribbean Bali, Aguada, Rincón, beach resort, private pool, Bali style villas">
+    <meta name="author" content="Caribbean Bali Villas">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Caribbean Bali Villas | Luxury Villas in Puerto Rico">
+    <meta property="og:description" content="A unique fusion of Balinese architecture and Caribbean hospitality on the west coast of Puerto Rico.">
+    <meta property="og:image" content="./assets/images/bg01.jpg">
+    <meta property="og:url" content="https://caribbeanbalivillas.com">
+    <meta property="og:site_name" content="Caribbean Bali Villas">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Caribbean Bali Villas | Luxury Villas in Puerto Rico">
+    <meta name="twitter:description" content="A unique fusion of Balinese architecture and Caribbean hospitality on the west coast of Puerto Rico.">
+    <meta name="twitter:image" content="./assets/images/bg01.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/flower.svg">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
-    <link rel="icon" type="image/x-icon" href="./assets/images/flower.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap">
+    
+    <!-- JSON-LD Structured Data for Hotel -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        "name": "Caribbean Bali Villas",
+        "description": "A unique fusion of Balinese architecture and Caribbean hospitality on the west coast of Puerto Rico.",
+        "email": "caribbeanbalivillas@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "PR 414 Km 0.8",
+            "addressLocality": "Guayabo, Aguada",
+            "postalCode": "00602",
+            "addressCountry": "PR"
+        },
+        "sameAs": [
+            "https://www.facebook.com/caribbeanbalivillas/",
+            "https://www.instagram.com/caribbeanbalivillas/"
+        ],
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Private Pool"},
+            {"@type": "LocationFeatureSpecification", "name": "Free WiFi"},
+            {"@type": "LocationFeatureSpecification", "name": "Concierge Service"},
+            {"@type": "LocationFeatureSpecification", "name": "Beach Access"}
+        ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Loading Screen -->
-    <div class="loading-screen">
-        <img src="./assets/images/logo.svg" alt="Caribbean Bali Logo" class="loading-logo">
+    <div class="loading-screen" aria-hidden="true">
+        <img src="./assets/images/logo.svg" alt="" class="loading-logo">
     </div>
+
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#" class="logo-container">
-                <img src="./assets/images/logo.svg" alt="Caribbean Bali Logo" class="logo-img">
+            <a href="#" class="logo-container" aria-label="Caribbean Bali Villas - Home">
+                <img src="./assets/images/logo.svg" alt="Caribbean Bali Villas Logo" class="logo-img">
             </a>
             <div class="nav-menu">
-                <div class="menu-toggle" id="menuToggle">☰</div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#about">About</a></li>
                     <li><a href="#rooms">Rooms</a></li>
-                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="#attractions">Attractions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#waitlist" class="nav-book-btn">Book Now</a></li>
                 </ul>
             </div>
         </div>
@@ -35,9 +97,9 @@
     
     <!-- Hero Section with Video -->
     <div class="carousel-container" id="hero">
-        <video autoplay muted loop playsinline src="./assets/images/video.mp4" style="width: 100%; height: 100%; object-fit: cover;"></video>
+        <video autoplay muted loop playsinline preload="metadata" src="./assets/images/video.mp4" style="width: 100%; height: 100%; object-fit: cover;" aria-label="Caribbean Bali Villas promotional video"></video>
         <div class="slide-content">
-            <img src="./assets/images/flower.svg" alt="Flower" class="flower">
+            <img src="./assets/images/flower.svg" alt="" class="flower">
             <div class="main-content-group">
                 <p class="welcome">WELCOME TO</p>
                 <img src="./assets/images/name.svg" alt="Caribbean Bali | Villas" class="name">
@@ -47,80 +109,386 @@
         </div>
     </div>
     
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2 class="section-title">About</h2>
-        <p>Caribbean Bali Villas represents a unique fusion of two of the world's most beloved tropical destinations. Nestled on the stunning west side of Puerto Rico, our property combines the serene, spiritual essence of Balinese architecture with the vibrant energy and natural beauty of the Caribbean.</p>
-        <br>
-        <p>Located on Puerto Rico's west coast, our villa offers guests easy access to some of the island's most spectacular attractions such as Crash Boat beach and Rincon local markets.</p>
-        <br>
-        <p>We are excited to share that Caribbean Bali Villas is currently under construction, with meticulous attention to detail. Our team of skilled craftsmen and designers are working to create a truly exceptional retreat that honors both Balinese traditions and Caribbean hospitality.</p>
-    </section>
-    
-    <!-- Rooms Section -->
-    <section id="rooms" class="section rooms-section">
-        <h2 class="section-title">Rooms</h2>
-        <div class="rooms-container">
-            <div class="room-card">
-                <img src="./assets/images/bg02.jpg" alt="Villa">
-                <div class="room-info">
-                    <h3>Villa</h3>
-                    <p>Our most exclusive accommodation with private pool and personalized service</p>
-                    <!-- <a href="#" class="btn btn-sm">View Details</a> -->
+    <main id="main-content">
+        <!-- About Section - Editorial Split Layout -->
+        <section id="about" class="section about-section">
+            <div class="about-layout">
+                <div class="about-heading">
+                    <span class="section-eyebrow">Our Story</span>
+                    <h2 class="section-title">About</h2>
+                    <div class="about-rule"></div>
+                    <p class="about-pullquote">"A sanctuary where two worlds meet — the serenity of Bali, the soul of the Caribbean."</p>
+                </div>
+                <div class="about-body">
+                    <p class="about-first">Caribbean Bali Villas represents a unique fusion of two of the world's most beloved tropical destinations. Nestled on the stunning west side of Puerto Rico, our property combines the serene, spiritual essence of Balinese architecture with the vibrant energy and natural beauty of the Caribbean.</p>
+                    <p>Located on Puerto Rico's west coast, our villa offers guests easy access to some of the island's most spectacular attractions such as Crash Boat beach and Rincon local markets.</p>
+                    <p>We are excited to share that Caribbean Bali Villas is currently under construction, with meticulous attention to detail. Our team of skilled craftsmen and designers are working to create a truly exceptional retreat that honors both Balinese traditions and Caribbean hospitality.</p>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Video Section -->
-    <section id="videos" class="section video-section">
-        <h2 class="section-title">Videos</h2>
-        <div class="video-container">
-            <div class="video-item">
-                <div class="video-player">
-                    <video controls preload="metadata" poster="assets/images/poster.png">
-                        <source src="./assets/images/teaser.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+        </section>
+        
+        <!-- Rooms Section - 4 Room Grid -->
+        <section id="rooms" class="section rooms-section">
+            <div class="section-header">
+                <span class="section-eyebrow">Accommodations</span>
+                <h2 class="section-title">Villas</h2>
+                <p class="section-subtitle">Experience the perfect blend of Balinese serenity and Caribbean luxury</p>
+            </div>
+            <div class="rooms-grid">
+                <article class="room-list-item">
+                    <div class="room-list-image">
+                        <img src="./assets/images/bg02.jpeg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <span class="room-number">01</span>
+                    </div>
+                    <div class="room-list-info">
+                        <h3>Royal Villa</h3>
+                        <p class="room-desc">Our signature villa featuring a private plunge pool.</p>
+                        <ul class="room-features">
+                            <li><i class="fa-solid fa-check"></i> Queen Bed</li>
+                            <li><i class="fa-solid fa-check"></i> Private Pool</li>
+                            <li><i class="fa-solid fa-check"></i> Kitchen</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-sm">Reserve</a>
+                    </div>
+                </article>
+                <article class="room-list-item">
+                    <div class="room-list-image">
+                        <img src="./assets/images/bg02.jpg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <span class="room-number">02</span>
+                    </div>
+                    <div class="room-list-info">
+                        <h3>Royal Villa</h3>
+                        <p class="room-desc">Our signature villa featuring a private plunge pool.</p>
+                        <ul class="room-features">
+                            <li><i class="fa-solid fa-check"></i> Queen Bed</li>
+                            <li><i class="fa-solid fa-check"></i> Private Pool</li>
+                            <li><i class="fa-solid fa-check"></i> Kitchen</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-sm">Reserve</a>
+                    </div>
+                </article>
+                <article class="room-list-item">
+                    <div class="room-list-image">
+                        <img src="./assets/images/bg02.jpg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <span class="room-number">03</span>
+                    </div>
+                    <div class="room-list-info">
+                        <h3>Royal Villa</h3>
+                        <p class="room-desc">Our signature villa featuring a private plunge pool.</p>
+                        <ul class="room-features">
+                            <li><i class="fa-solid fa-check"></i> Queen Bed</li>
+                            <li><i class="fa-solid fa-check"></i> Private Pool</li>
+                            <li><i class="fa-solid fa-check"></i> Kitchen</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-sm">Reserve</a>
+                    </div>
+                </article>
+                <article class="room-list-item">
+                    <div class="room-list-image">
+                        <img src="./assets/images/bg02.jpeg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <span class="room-number">04</span>
+                    </div>
+                    <div class="room-list-info">
+                        <h3>Royal Villa</h3>
+                        <p class="room-desc">Our signature villa featuring a private plunge pool.</p>
+                        <ul class="room-features">
+                            <li><i class="fa-solid fa-check"></i> Queen Bed</li>
+                            <li><i class="fa-solid fa-check"></i> Private Pool</li>
+                            <li><i class="fa-solid fa-check"></i> Kitchen</li>
+                        </ul>
+                        <a href="#booking" class="btn btn-sm">Reserve</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Amenities Section - Offset Grid with Big Numbers -->
+        <section id="amenities" class="section amenities-section">
+            <div class="amenities-watermark" aria-hidden="true">INDULGE</div>
+            <div class="section-header">
+                <span class="section-eyebrow">The Experience</span>
+                <h2 class="section-title">Amenities</h2>
+                <p class="section-subtitle">Every detail designed for your comfort and indulgence</p>
+            </div>
+            <div class="amenities-editorial">
+                <div class="amenity-row">
+                    <div class="amenity-item">
+                        <span class="amenity-num">01</span>
+                        <i class="fa-solid fa-water-ladder"></i>
+                        <h3>Heated Pool</h3>
+                        <p>Enjoy your own heated private pool</p>
+                    </div>
+                    <div class="amenity-item">
+                        <span class="amenity-num">02</span>
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                        <h3>Beach Access</h3>
+                        <p>Steps from pristine shores</p>
+                    </div>
                 </div>
-                <div class="video-info">
-                    <h3>Carriben Bali Official Teaser</h3>
-                    <p>Coming 2026</p>
+                <div class="amenity-row">
+                    <div class="amenity-item">
+                        <span class="amenity-num">03</span>
+                        <i class="fa-solid fa-concierge-bell"></i>
+                        <h3>Concierge</h3>
+                        <p>24/7 personalized service</p>
+                    </div>
+                    <div class="amenity-item">
+                        <span class="amenity-num">04</span>
+                        <i class="fa-solid fa-wifi"></i>
+                        <h3>Free WiFi</h3>
+                        <p>High-speed throughout</p>
+                    </div>
                 </div>
             </div>
+        </section>
+        
+        <!-- Video Section -->
+        <section id="videos" class="section video-section">
+            <div class="section-header">
+                <span class="section-eyebrow">Watch</span>
+                <h2 class="section-title">Videos</h2>
+            </div>
+            <div class="video-container">
+                <div class="video-item">
+                    <div class="video-player">
+                        <video controls preload="metadata" poster="assets/images/poster.png">
+                            <source src="./assets/images/teaser.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3>Caribbean Bali Official Teaser</h3>
+                        <p>Coming 2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section - Masonry Editorial Grid -->
+        <section id="gallery" class="section gallery-section">
+            <div class="section-header">
+                <span class="section-eyebrow">Visual Journey</span>
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-subtitle">A glimpse of paradise</p>
+            </div>
+            <div class="gallery-masonry">
+                <!-- <div class="gallery-item featured">
+                    <img src="./assets/images/bg01.jpg" alt="Front entrance of Caribbean Bali Villas" loading="lazy">
+                    <div class="gallery-caption"><span>Front Entrance</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/bg02.jpg" alt="Swimming pool surrounded by tropical gardens" loading="lazy">
+                    <div class="gallery-caption"><span>Swimming Pool</span></div>
+                </div>
+                <div class="gallery-item tall">
+                    <img src="./assets/images/bg03.jpg" alt="Villa exterior with Balinese architecture" loading="lazy">
+                    <div class="gallery-caption"><span>Villa Exterior</span></div>
+                </div> -->
+                <div class="gallery-item">
+                    <img src="./assets/images/bg01.jpg" alt="Luxury villa entrance" loading="lazy">
+                    <div class="gallery-caption"><span>Villa Entrance</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/bg02.jpg" alt="Pool area at sunset" loading="lazy">
+                    <div class="gallery-caption"><span>Private Pool</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./assets/images/bg03.jpg" alt="Tropical garden pathway" loading="lazy">
+                    <div class="gallery-caption"><span>Garden Pathway</span></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Local Attractions Section - Split with Offset Cards -->
+        <section id="attractions" class="section attractions-section">
+            <div class="attractions-layout">
+                <div class="attractions-heading">
+                    <span class="section-eyebrow">Explore</span>
+                    <h2 class="section-title">Local Attractions</h2>
+                    <div class="attractions-rule"></div>
+                    <p>From world-class beaches to historic landmarks, the wonders of Puerto Rico's west coast are just moments away.</p>
+                </div>
+                <div class="attractions-grid">
+                    <div class="attraction-card">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                        <h3>Crash Boat Beach</h3>
+                        <p>One of Puerto Rico's most famous beaches, known for its crystal-clear waters and vibrant local food kiosks.</p>
+                        <span class="attraction-distance">25 min drive</span>
+                    </div>
+                    <div class="attraction-card">
+                        <i class="fa-solid fa-sun"></i>
+                        <h3>Rincón</h3>
+                        <p>World-renowned for surfing, stunning sunsets, and charming local markets just minutes away.</p>
+                        <span class="attraction-distance">10 min drive</span>
+                    </div>
+                    <div class="attraction-card">
+                        <i class="fa-solid fa-water"></i>
+                        <h3>Domes Beach</h3>
+                        <p>One of the Caribbean's most iconic surfing beaches, famous for its powerful waves and breathtaking sunsets.</p>
+                        <span class="attraction-distance">15 min drive</span>
+                    </div>
+                    <div class="attraction-card">
+                        <i class="fa-solid fa-tower-observation"></i>
+                        <h3>Punta Borinquén Lighthouse</h3>
+                        <p>A historic 19th-century lighthouse perched on dramatic cliffs, offering panoramic ocean views in Aguadilla.</p>
+                        <span class="attraction-distance">30 min drive</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section - Large Quote Carousel -->
+        <!-- <section id="testimonials" class="section testimonials-section">
+            <div class="section-header">
+                <span class="section-eyebrow">Guest Stories</span>
+                <h2 class="section-title">Guest Experiences</h2>
+            </div>
+            <div class="testimonial-carousel">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
+                    <p class="testimonial-text">An absolutely breathtaking retreat. The fusion of Balinese design with Caribbean warmth creates an unforgettable experience. We can't wait to return!</p>
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-author">Maria & Carlos, San Juan</p>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
+                    <p class="testimonial-text">The most serene and luxurious stay we've ever experienced. The attention to detail is impeccable, and the location is perfect for exploring the west coast.</p>
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-author">The Johnson Family, New York</p>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-quote-mark" aria-hidden="true">&ldquo;</div>
+                    <p class="testimonial-text">A hidden gem on Puerto Rico's west coast. The private pool villa exceeded all expectations. Truly a paradise found.</p>
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-author">Sarah Mitchell, Chicago</p>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-arrow" id="prevTestimonial" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button>
+                    <div class="testimonial-dots">
+                        <span class="testimonial-dot active" data-index="0"></span>
+                        <span class="testimonial-dot" data-index="1"></span>
+                        <span class="testimonial-dot" data-index="2"></span>
+                    </div>
+                    <button class="testimonial-arrow" id="nextTestimonial" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </section> -->
+        
+        <!-- Booking / Contact Section - Split Layout -->
+        <!-- <section id="booking" class="section booking-section">
+            <div class="booking-layout">
+                <div class="booking-heading">
+                    <span class="section-eyebrow">Reservations</span>
+                    <h2 class="section-title">Reserve Your Stay</h2>
+                    <div class="booking-rule"></div>
+                    <p>We're currently accepting reservations for our 2026 opening. Share your details and our concierge team will craft your perfect escape.</p>
+                    <div class="booking-contact">
+                        <p><i class="fa-solid fa-envelope"></i> caribbeanbalivillas@gmail.com</p>
+                        <p><i class="fa-solid fa-location-dot"></i> PR 414 Km 0.8, Guayabo, Aguada 00602</p>
+                    </div>
+                </div>
+                <div class="booking-form-wrap">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="checkin">Check-in Date</label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Check-out Date</label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Guests</label>
+                            <select id="guests" name="guests" required>
+                                <option value="">Select guests</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5+">5+ Guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomType">Room Type</label>
+                            <select id="roomType" name="roomType" required>
+                                <option value="">Select room</option>
+                                <option value="garden">Garden Villa</option>
+                                <option value="pool">Pool Villa</option>
+                                <option value="ocean">Ocean Suite</option>
+                                <option value="royal">Royal Villa</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Special Requests</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your special requests..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Request Reservation</button>
+                    </form>
+                    <div id="formSuccess" class="form-success" hidden>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h3>Thank You!</h3>
+                        <p>Your reservation request has been received. Our concierge team will contact you within 24 hours to confirm your stay.</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        
+        <!-- Waitlist Section -->
+        <section id="waitlist" class="section waitlist-section">
+            <div class="waitlist-watermark" aria-hidden="true">2026</div>
+            <div class="section-header">
+                <span class="section-eyebrow">Be First</span>
+                <h2 class="section-title">Join Our Waitlist</h2>
+                <p class="section-subtitle">Be the first to know about our grand opening and exclusive pre-launch offers</p>
+            </div>
+            <form id="waitlistForm" class="waitlist-form">
+                <div class="waitlist-input-group">
+                    <input type="email" id="waitlistEmail" name="waitlistEmail" required placeholder="Enter your email address" aria-label="Email address for waitlist">
+                    <button type="submit" class="btn btn-waitlist">Notify Me</button>
+                </div>
+                <p id="waitlistSuccess" class="waitlist-success" hidden>You're on the list! We'll be in touch soon.</p>
+            </form>
+        </section>
+        
+        <!-- Image Modal/Lightbox -->
+        <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
+            <button class="close" id="closeModal" aria-label="Close image viewer">&times;</button>
+            <img class="modal-content" id="modalImage" alt="Enlarged gallery image">
         </div>
-    </section>
-    
-    <!-- Gallery Section -->
-    <section id="gallery" class="section gallery-section">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="./assets/images/bg01.jpg" alt="Front Entrance">
-            </div>
-            <div class="gallery-item">
-                <img src="./assets/images/bg02.jpg" alt="Swimming Pool">
-            </div>
-            <div class="gallery-item">
-                <img src="./assets/images/bg03.jpg" alt="Side">
-            </div>
-        </div>
-    </section>
-    
-    <!-- Image Modal/Lightbox -->
-    <div id="imageModal" class="modal">
-        <span class="close" id="closeModal">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
+    </main>
     
     <!-- Footer Section -->
-    <footer id="footer" class="footer">
+    <footer id="contact" class="footer">
         <div class="footer-container">
             <div class="footer-section contact">
                 <h3>Contact Us</h3>
-                <!-- <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p> -->
                 <p><i class="fa-solid fa-envelope"></i> caribbeanbalivillas@gmail.com</p>
-                <!-- <p><i class="fa-solid fa-clock"></i> 24/7 Customer Service</p> -->
             </div>
             
             <div class="footer-section address">
@@ -133,19 +501,25 @@
             <div class="footer-section social">
                 <h3>Connect With Us</h3>
                 <div class="social-icons">
-                    <!-- <a href="https://www.facebook.com/caribbeanbalivillas/" target="_blank" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a> -->
-                    <a href="https://www.facebook.com/caribbeanbalivillas/" target="_blank" class="social-icon"><img src="./assets/images/facebook.png" alt="Facebook" style="width: 30px;"></a>
-                    <a href="https://www.instagram.com/caribbeanbalivillas/" target="_blank" class="social-icon"><img src="assets/images/ig.svg" alt="Instagram" style="width: 60px;"></a>
-                    <a href="https://share.google/LbSLD8X38hr0MbAIT" target="_blank" class="social-icon"><img src="assets/images/google.png" alt="Google" style="width: 25px;"></a>
+                    <a href="https://www.facebook.com/caribbeanbalivillas/" target="_blank" rel="noopener" class="social-icon" aria-label="Follow us on Facebook">
+                        <img src="./assets/images/facebook.png" alt="Facebook" class="social-img social-facebook">
+                    </a>
+                    <a href="https://www.instagram.com/caribbeanbalivillas/" target="_blank" rel="noopener" class="social-icon" aria-label="Follow us on Instagram">
+                        <img src="assets/images/ig.svg" alt="Instagram" class="social-img social-instagram">
+                    </a>
+                    <a href="https://share.google/LbSLD8X38hr0MbAIT" target="_blank" rel="noopener" class="social-icon" aria-label="Find us on Google">
+                        <img src="assets/images/google.png" alt="Google" class="social-img social-google">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p><img src="./assets/images/logo.svg" alt="Caribbean Bali | Villas" style="width: 30%;"></p>
+            <p><img src="./assets/images/logo.svg" alt="Caribbean Bali | Villas" class="footer-logo"></p>
+            <p class="footer-copyright">&copy; <span id="year"></span> Caribbean Bali Villas. All rights reserved.</p>
         </div>
     </footer>
     
-    <!-- JavaScript for Loading Screen, Carousel and Mobile Menu -->
+    <!-- JavaScript -->
     <script src="./assets/script.js"></script>
 </body>
 </html>
