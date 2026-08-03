@@ -137,7 +137,7 @@
             <div class="rooms-grid">
                 <article class="room-list-item">
                     <div class="room-list-image">
-                        <img src="./assets/images/bg02.jpeg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <img src="./assets/images/construction-flip.svg" alt="Pool Villa with private swimming pool" loading="lazy">
                         <span class="room-number">01</span>
                     </div>
                     <div class="room-list-info">
@@ -153,7 +153,7 @@
                 </article>
                 <article class="room-list-item">
                     <div class="room-list-image">
-                        <img src="./assets/images/bg02.jpg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <img src="./assets/images/construction.svg" alt="Pool Villa with private swimming pool" loading="lazy">
                         <span class="room-number">02</span>
                     </div>
                     <div class="room-list-info">
@@ -169,7 +169,7 @@
                 </article>
                 <article class="room-list-item">
                     <div class="room-list-image">
-                        <img src="./assets/images/bg02.jpg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <img src="./assets/images/construction-flip.svg" alt="Pool Villa with private swimming pool" loading="lazy">
                         <span class="room-number">03</span>
                     </div>
                     <div class="room-list-info">
@@ -185,7 +185,7 @@
                 </article>
                 <article class="room-list-item">
                     <div class="room-list-image">
-                        <img src="./assets/images/bg02.jpeg" alt="Pool Villa with private swimming pool" loading="lazy">
+                        <img src="./assets/images/construction.svg" alt="Pool Villa with private swimming pool" loading="lazy">
                         <span class="room-number">04</span>
                     </div>
                     <div class="room-list-info">
@@ -219,24 +219,24 @@
                         <p>Enjoy your own heated private pool</p>
                     </div>
                     <div class="amenity-item">
-                        <span class="amenity-num">02</span>
-                        <i class="fa-solid fa-umbrella-beach"></i>
-                        <h3>Beach Access</h3>
-                        <p>Steps from pristine shores</p>
+                        <span class="amenity-num">04</span>
+                        <i class="fa-solid fa-wifi"></i>
+                        <h3>Free WiFi</h3>
+                        <p>High speed internet</p>
                     </div>
                 </div>
                 <div class="amenity-row">
                     <div class="amenity-item">
                         <span class="amenity-num">03</span>
-                        <i class="fa-solid fa-concierge-bell"></i>
-                        <h3>Concierge</h3>
-                        <p>24/7 personalized service</p>
+                        <i class="fa-solid fa-television"></i>
+                        <h3>Streaming Services</h3>
+                        <p>Enjoy Netflix on your stay.</p>
                     </div>
                     <div class="amenity-item">
-                        <span class="amenity-num">04</span>
-                        <i class="fa-solid fa-wifi"></i>
-                        <h3>Free WiFi</h3>
-                        <p>High-speed throughout</p>
+                        <span class="amenity-num">02</span>
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                        <h3>Beach Access</h3>
+                        <p>Steps away from pristine shores</p>
                     </div>
                 </div>
             </div>
@@ -468,18 +468,29 @@
                 <p class="section-subtitle">Be the first to know about our grand opening and exclusive pre-launch offers</p>
             </div>
             <form id="waitlistForm" class="waitlist-form">
+                <input type="hidden" name="access_key" value="9a62f77c-f20d-4c1a-b168-7049f9fe7e9a">
+                <input type="hidden" name="subject" value="New Waitlist Signup">
+                <input type="hidden" name="from_name" value="Caribbean Bali Website">
+                <input type="hidden" name="replyto" value="caribbeanbalivillas@gmail.com">
                 <div class="waitlist-input-group">
-                    <input type="email" id="waitlistEmail" name="waitlistEmail" required placeholder="Enter your email address" aria-label="Email address for waitlist">
+                    <input type="email" id="waitlistEmail" name="email" required placeholder="Enter your email address" aria-label="Email address for waitlist">
                     <button type="submit" class="btn btn-waitlist">Notify Me</button>
                 </div>
                 <p id="waitlistSuccess" class="waitlist-success" hidden>You're on the list! We'll be in touch soon.</p>
+                <p id="waitlistError" class="waitlist-error" hidden>Something went wrong. Please try again or email us directly at caribbeanbalivillas@gmail.com.</p>
             </form>
         </section>
         
         <!-- Image Modal/Lightbox -->
         <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Image viewer">
             <button class="close" id="closeModal" aria-label="Close image viewer">&times;</button>
+            <button class="modal-nav modal-prev" id="prevImage" aria-label="Previous image">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
             <img class="modal-content" id="modalImage" alt="Enlarged gallery image">
+            <button class="modal-nav modal-next" id="nextImage" aria-label="Next image">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
     </main>
     
@@ -488,14 +499,18 @@
         <div class="footer-container">
             <div class="footer-section contact">
                 <h3>Contact Us</h3>
-                <p><i class="fa-solid fa-envelope"></i> caribbeanbalivillas@gmail.com</p>
+                <a href="mailto:caribbeanbalivillas@gmail.com" class="address-link" aria-label="Email Caribbean Bali Villas">
+                    <p><i class="fa-solid fa-envelope"></i> caribbeanbalivillas@gmail.com</p>
+                </a>
             </div>
             
             <div class="footer-section address">
                 <h3>Our Address</h3>
-                <p><i class="fa-solid fa-location-dot"></i> PR 414 Km 0.8</p>
-                <p>Guayabo, Aguada 00602</p>
-                <p>Puerto Rico</p>
+                <a href="https://share.google/sNrY3YH6ae0a9Ox7C" target="_blank" rel="noopener" class="address-link" aria-label="Open our address in Google Maps">
+                    <p><i class="fa-solid fa-location-dot"></i> PR 414 Km 0.8</p>
+                    <p>Guayabo, Aguada 00602</p>
+                    <p>Puerto Rico</p>
+                </a>
             </div>
             
             <div class="footer-section social">

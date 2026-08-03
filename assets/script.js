@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         loadingScreen.classList.add('fade-out');
         
-        // Fade i6n slide content as loading screen fades out
+        // Fade in slide content as loading screen fades out
         setTimeout(() => {
             slideContent.classList.add('fade-in');
         }, 300);
@@ -76,12 +76,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const closeModal = document.getElementById('closeModal');
+    const prevImage = document.getElementById('prevImage');
+    const nextImage = document.getElementById('nextImage');
+    let currentImageIndex = 0;
     let lastFocusedElement = null;
     
-    galleryItems.forEach(item => {
+    function showImage(index) {
+        currentImageIndex = (index + galleryItems.length) % galleryItems.length;
+        const img = galleryItems[currentImageIndex].querySelector('img');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt || 'Enlarged gallery image';
+    }
+    
+    galleryItems.forEach((item, index) => {
         item.addEventListener('click', function() {
             const img = this.querySelector('img');
             lastFocusedElement = document.activeElement;
+            currentImageIndex = index;
             modal.classList.add('show');
             modalImg.src = img.src;
             modalImg.alt = img.alt || 'Enlarged gallery image';
@@ -100,6 +111,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     closeModal.addEventListener('click', closeModalFn);
     
+    // Previous/Next image navigation
+    if (prevImage) {
+        prevImage.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showImage(currentImageIndex - 1);
+        });
+    }
+    
+    if (nextImage) {
+        nextImage.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showImage(currentImageIndex + 1);
+        });
+    }
+    
     // Close modal when clicking outside the image
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
@@ -107,10 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close modal with escape key
+    // Close modal with escape key, navigate with arrow keys
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
+        if (!modal.classList.contains('show')) return;
+        
+        if (e.key === 'Escape') {
             closeModalFn();
+        } else if (e.key === 'ArrowLeft') {
+            showImage(currentImageIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+            showImage(currentImageIndex + 1);
         }
     });
     
@@ -157,16 +189,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Waitlist form submission
+    // Waitlist form submission via Web3Forms
     const waitlistForm = document.getElementById('waitlistForm');
     const waitlistSuccess = document.getElementById('waitlistSuccess');
+    const waitlistError = document.getElementById('waitlistError');
     
     if (waitlistForm) {
-        waitlistForm.addEventListener('submit', function(e) {
+        waitlistForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            waitlistSuccess.hidden = false;
-            waitlistForm.querySelector('input').value = '';
-            waitlistSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            const submitBtn = waitlistForm.querySelector('.btn-waitlist');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Hide any previous messages
+            waitlistSuccess.hidden = true;
+            waitlistError.hidden = true;
+            
+            const formData = new FormData(waitlistForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    waitlistSuccess.hidden = false;
+                    waitlistForm.querySelector('input[type="email"]').value = '';
+                    waitlistSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    waitlistError.hidden = false;
+                    waitlistError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            } catch (error) {
+                waitlistError.hidden = false;
+                waitlistError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
     

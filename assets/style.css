@@ -152,15 +152,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-links li {
-    margin-left: 1.5rem;
+    margin-left: 1.2rem;
 }
 
 .nav-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-family: 'Cormorant Garamond', serif;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -175,6 +176,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 4px;
     font-weight: 600;
     transition: all 0.3s ease !important;
+    white-space: nowrap;
 }
 
 .nav-book-btn:hover {
@@ -1280,6 +1282,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.waitlist-error {
+    margin-top: 1rem;
+    color: #d32f2f;
+    font-weight: 500;
+}
+
 /* ============================================
    Modal/Lightbox for Gallery Images
    ============================================ */
@@ -1328,6 +1336,56 @@ h1, h2, h3, h4, h5, h6 {
 
 .close:hover {
     color: #f8d488;
+}
+
+/* Modal navigation (prev/next) buttons */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 1101;
+}
+
+.modal-nav:hover {
+    background-color: #f8d488;
+    border-color: #f8d488;
+    color: #1a2913;
+}
+
+.modal-prev {
+    left: 25px;
+}
+
+.modal-next {
+    right: 25px;
+}
+
+@media (max-width: 576px) {
+    .modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
 }
 
 /* ============================================
@@ -1380,6 +1438,24 @@ h1, h2, h3, h4, h5, h6 {
 .footer-section i {
     margin-right: 10px;
     color: #f8d488;
+}
+
+/* Address link in footer */
+.address-link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.address-link:hover {
+    color: #f8d488;
+}
+
+.address-link p {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
 }
 
 .social-icons {
@@ -1498,18 +1574,6 @@ h1, h2, h3, h4, h5, h6 {
     
     .nav-links.active {
         transform: translateY(0);
-    }
-    
-    .nav-links li {
-        margin: 1rem 0;
-    }
-    
-    .nav-book-btn {
-        margin-top: 0.5rem;
-    }
-    
-    .slide-content h1 {
-        font-size: 2rem;
     }
     
     .section {
