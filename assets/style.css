@@ -36,6 +36,217 @@
     100% { transform: scale(1); }
 }
 
+/* ============================================
+   Waitlist Popup Modal
+   ============================================ */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 2500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 20px;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f0 100%);
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s ease;
+    border: 2px solid #f8d488;
+}
+
+.popup-overlay.show .popup-content {
+    transform: scale(1) translateY(0);
+}
+
+.popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #1a2913;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.popup-close:hover {
+    background-color: rgba(26, 41, 19, 0.1);
+    transform: rotate(90deg);
+}
+
+.popup-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.popup-flower {
+    width: 60px;
+    height: auto;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.popup-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1a2913;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.popup-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.popup-description strong {
+    color: #b8860b;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.popup-form {
+    width: 100%;
+}
+
+.popup-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.popup-input-group input[type="email"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.popup-input-group input[type="email"]:focus {
+    outline: none;
+    border-color: #f8d488;
+    box-shadow: 0 0 0 3px rgba(248, 212, 136, 0.2);
+}
+
+.btn-popup {
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #f8d488 !important;
+    color: #1a2913 !important;
+    border: 2px solid #f8d488 !important;
+    border-radius: 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(26, 41, 19, 0.4) !important;
+}
+
+.btn-popup:hover {
+    background-color: #d4af37 !important;
+    color: #1a2913 !important;
+    border-color: #d4af37 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5) !important;
+}
+
+.btn-popup:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.popup-success {
+    text-align: center;
+    color: #2d5016;
+    background-color: #e8f5e9;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    border: 1px solid #81c784;
+}
+
+.popup-error {
+    text-align: center;
+    color: #c62828;
+    background-color: #ffebee;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    border: 1px solid #ef5350;
+}
+
+/* Mobile responsiveness for popup */
+@media (max-width: 576px) {
+    .popup-content {
+        padding: 2rem 1.5rem;
+        max-width: 95%;
+    }
+    
+    .popup-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .popup-description {
+        font-size: 1rem;
+    }
+    
+    .popup-flower {
+        width: 50px;
+    }
+    
+    .popup-input-group {
+        gap: 0.8rem;
+    }
+    
+    .popup-input-group input[type="email"],
+    .btn-popup {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+}
+
 /* Fade-in effect for slide content */
 .slide-content {
     opacity: 0;

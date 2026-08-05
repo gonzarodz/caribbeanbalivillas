@@ -7,6 +7,117 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ============================================
+    // Waitlist Popup Modal
+    // ============================================
+    const popup = document.getElementById('waitlistPopup');
+    const closePopupBtn = document.getElementById('closePopup');
+    const popupForm = document.getElementById('popupWaitlistForm');
+    const popupSuccess = document.getElementById('popupSuccess');
+    const popupError = document.getElementById('popupError');
+    const amenitiesSection = document.getElementById('amenities');
+    
+    // Check if popup was already shown/closed in this session
+    const popupClosed = sessionStorage.getItem('waitlistPopupClosed');
+    let popupShown = false;
+    
+    // Show popup when user scrolls to amenities section
+    function checkScrollForPopup() {
+        if (popupClosed || popupShown) return;
+        
+        const amenitiesPosition = amenitiesSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Show popup when amenities section is about 30% visible in viewport
+        if (amenitiesPosition.top < windowHeight * 0.7 && amenitiesPosition.bottom > 0) {
+            popup.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            popupShown = true;
+            // Remove scroll listener after showing popup
+            window.removeEventListener('scroll', checkScrollForPopup);
+        }
+    }
+    
+    // Add scroll listener if popup hasn't been closed
+    if (!popupClosed) {
+        window.addEventListener('scroll', checkScrollForPopup);
+        // Also check on page load in case user is already at that position
+        checkScrollForPopup();
+    }
+    
+    // Close popup function
+    function closePopup() {
+        popup.classList.remove('show');
+        document.body.style.overflow = '';
+        sessionStorage.setItem('waitlistPopupClosed', 'true');
+    }
+    
+    // Close popup when clicking X button
+    closePopupBtn.addEventListener('click', closePopup);
+    
+    // Close popup when clicking outside the content
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
+    
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup.classList.contains('show')) {
+            closePopup();
+        }
+    });
+    
+    // Handle popup form submission
+    if (popupForm) {
+        popupForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = popupForm.querySelector('.btn-popup');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Hide any previous messages
+            popupSuccess.hidden = true;
+            popupError.hidden = true;
+            
+            const formData = new FormData(popupForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    popupSuccess.hidden = false;
+                    popupForm.querySelector('input[type="email"]').value = '';
+                    
+                    // Close popup after 5 seconds on success
+                    setTimeout(() => {
+                        closePopup();
+                    }, 5000);
+                } else {
+                    popupError.hidden = false;
+                }
+            } catch (error) {
+                popupError.hidden = false;
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
     // Loading screen
     const loadingScreen = document.querySelector('.loading-screen');
     const slideContent = document.querySelector('.slide-content');
