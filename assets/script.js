@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Remove loading screen from DOM after fade animation completes
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
+            loadingScreen.remove();
         }, 1500);
     }, 2000);
     
@@ -146,9 +146,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to check scroll position and show/hide navbar
     function checkScroll() {
-        const learnBottom = learnBtn.getBoundingClientRect().bottom;
+        const scrollPosition = window.scrollY || window.pageYOffset;
         
-        if (learnBottom <= 90) {
+        // Show navbar after scrolling down 100px
+        if (scrollPosition > 100) {
             navbar.classList.add('visible');
         } else {
             navbar.classList.remove('visible');
@@ -157,7 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Check scroll position on scroll and page load
     window.addEventListener('scroll', checkScroll);
-    checkScroll();
+    // Wait a bit before checking on load to ensure content is rendered
+    setTimeout(checkScroll, 100);
     
     // Mobile menu toggle
     menuToggle.addEventListener('click', function() {
