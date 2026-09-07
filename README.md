@@ -1,42 +1,41 @@
 # Caribbean Bali | Villas - Website
 
-A luxury hotel website built with **HTML**, **CSS**, and **JavaScript**.  
-The website provides information about the hotel, available rooms, amenities, gallery, local attractions, testimonials, and booking.
+A luxury villa website built with **HTML**, **CSS**, and **JavaScript** for Caribbean Bali Villas in Aguada, Puerto Rico.
 
 ## 📂 Project Structure
 
 ```
 caribbeanbalivillas/
 │── index.html              # Main homepage
-│── /assets/style.css       # Stylesheet
-│── /assets/script.js       # JavaScript for interactivity
-│── /assets/images          # Images used on the site
+│── assets/
+│   ├── style.css           # Stylesheet
+│   ├── script.js           # JavaScript for interactivity
+│   └── images/             # Images and videos used on the site
 │── LICENSE                 # Project license
 ```
 
 ## ✨ Features
 
-- **Hero Section** — Full-screen video background with elegant loading screen
-- **Navigation** — Fixed navbar with smooth scroll, mobile menu, and Book Now CTA
+- **Hero Section** — Full-screen video background with loading screen
+- **Navigation** — Fixed navbar with smooth scroll and mobile menu
 - **About** — Story of the property's Balinese-Caribbean fusion
-- **Rooms & Suites** — Garden Villa, Pool Villa, and Ocean Suite cards
-- **Amenities** — Icon-based grid (pool, spa, dining, beach, concierge, wifi)
+- **Villas** — Villa cards with reserve dropdowns (Airbnb / Booking.com)
+- **Amenities** — Private pool, WiFi, Smart TV, kitchen, bath essentials, beach access
 - **Videos** — Official teaser video
 - **Gallery** — Interactive lightbox image viewer
-- **Local Attractions** — Crash Boat Beach, Rincón, El Yunque, Old San Juan
-- **Testimonials** — Guest experience cards
-- **Booking** — Reservation request form with validation
-- **Waitlist** — Email signup for pre-launch offers
+- **Local Attractions** — Crash Boat Beach, Rincón, Domes Beach, Punta Borinquén Lighthouse
+- **Waitlist** — Email signup with popup modal and Web3Forms integration
 - **SEO** — Meta tags, Open Graph, Twitter Cards, and JSON-LD Hotel schema
-- **Accessibility** — Skip link, ARIA labels, focus trap in modal, semantic HTML
+- **Accessibility** — ARIA labels, focus trap in modal, semantic HTML
 
 ## 🛠️ Technologies Used
 
 - **HTML5** — Semantic markup
-- **CSS3** — Responsive design, animations, luxury typography (Playfair Display, Cormorant Garamond)
+- **CSS3** — Responsive design, animations, luxury typography
 - **JavaScript** — Interactivity, form handling, modal, mobile menu
 - **Font Awesome** — Icons
 - **Google Fonts** — Luxury serif typography
+- **Web3Forms** — Form submission API
 
 ## 📄 License
 
