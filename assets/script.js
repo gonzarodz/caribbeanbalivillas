@@ -184,6 +184,74 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // ============================================
+    // Reserve Dropdown (Airbnb / Booking.com)
+    // ============================================
+    const reserveDropdowns = document.querySelectorAll('.reserve-dropdown');
+    
+    // Close all open dropdowns
+    function closeAllReserveDropdowns(exceptDropdown) {
+        reserveDropdowns.forEach(dropdown => {
+            if (dropdown !== exceptDropdown) {
+                dropdown.classList.remove('open');
+                const btn = dropdown.querySelector('.reserve-btn');
+                if (btn) {
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+                // Remove z-index boost from parent card
+                const roomItem = dropdown.closest('.room-list-item');
+                if (roomItem) {
+                    roomItem.classList.remove('dropdown-open');
+                }
+            }
+        });
+    }
+    
+    // Toggle dropdown on button click
+    reserveDropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.reserve-btn');
+        
+        if (btn) {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains('open');
+                const roomItem = dropdown.closest('.room-list-item');
+                
+                // Close all other dropdowns first
+                closeAllReserveDropdowns(dropdown);
+                
+                // Toggle this dropdown
+                if (isOpen) {
+                    dropdown.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    if (roomItem) {
+                        roomItem.classList.remove('dropdown-open');
+                    }
+                } else {
+                    dropdown.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                    if (roomItem) {
+                        roomItem.classList.add('dropdown-open');
+                    }
+                }
+            });
+        }
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.reserve-dropdown')) {
+            closeAllReserveDropdowns(null);
+        }
+    });
+    
+    // Close dropdowns with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllReserveDropdowns(null);
+        }
+    });
+    
     // Gallery image modal functionality
     const galleryItems = document.querySelectorAll('.gallery-item');
     const modal = document.getElementById('imageModal');

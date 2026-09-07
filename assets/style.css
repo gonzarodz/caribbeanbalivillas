@@ -738,7 +738,6 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1.5rem;
     background-color: #fff;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -748,10 +747,16 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
+.room-list-item.dropdown-open {
+    z-index: 10;
+    position: relative;
+}
+
 .room-list-image {
     position: relative;
     overflow: hidden;
     min-height: 200px;
+    border-radius: 8px 0 0 8px;
 }
 
 .room-list-image img {
@@ -780,7 +785,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .room-desc {
     color: #666;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     font-size: 1rem;
 }
 
@@ -807,13 +812,94 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
     border-color: #1a2913;
-    color: #1a2913;
+    color: #fff;
     align-self: flex-start;
+    background-color: #1a2913;
 }
 
 .btn-sm:hover {
-    background-color: #1a2913;
-    color: #fff;
+    background-color: #f8d488;
+    border-color: #f8d488;
+    color: #1a2913;
+}
+
+/* Reserve Dropdown */
+.reserve-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.reserve-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.reserve-btn i {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.reserve-dropdown.open .reserve-btn i {
+    transform: rotate(180deg);
+}
+
+.reserve-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    min-width: 190px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 0.4rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+}
+
+.reserve-dropdown.open .reserve-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.reserve-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.8rem;
+    color: #1a2913;
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.reserve-dropdown-menu a i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    color: #b8860b;
+    transition: color 0.2s ease;
+}
+
+.reserve-dropdown-menu a .fa-airbnb {
+    color: #FF5A5F;
+}
+
+.reserve-dropdown-menu a .fa-hotel {
+    color: #003580;
+}
+
+.reserve-dropdown-menu a:hover {
+    background-color: #f8d488;
 }
 
 /* ============================================
@@ -1804,6 +1890,22 @@ h1, h2, h3, h4, h5, h6 {
     
     .room-list-image {
         min-height: 200px;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .reserve-dropdown {
+        width: 100%;
+    }
+    
+    .reserve-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .reserve-dropdown-menu {
+        left: 0;
+        right: 0;
+        min-width: 0;
     }
     
     .amenity-row {
