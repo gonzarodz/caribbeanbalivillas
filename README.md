@@ -8,8 +8,15 @@ The website provides information about the hotel, available rooms, amenities, ga
 ```
 caribbeanbalivillas/
 │── index.html              # Main homepage
-│── /assets/style.css       # Stylesheet
-│── /assets/script.js       # JavaScript for interactivity
+│── /rooms                  # Individual villa detail pages
+│   │── villa1.html         # Royal Villa
+│   │── villa2.html         # Garden Villa
+│   │── villa3.html         # Pool Villa
+│   │── villa4.html         # Ocean Vista Villa
+│── /assets/style.css       # Stylesheet (homepage)
+│── /assets/villa.css       # Stylesheet (villa detail pages)
+│── /assets/script.js       # JavaScript for homepage interactivity
+│── /assets/villa.js        # JavaScript for villa detail pages
 │── /assets/images          # Images used on the site
 │── LICENSE                 # Project license
 ```

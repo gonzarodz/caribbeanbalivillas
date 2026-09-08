@@ -1932,3 +1932,16 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 8rem;
     }
 }
+
+/* Hospitable Direct Booking Widget container */
+.booking-widget-container {
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 0 2rem;
+    min-height: 400px;
+}
+
+.booking-widget-container iframe {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
