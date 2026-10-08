@@ -1155,7 +1155,7 @@ h1, h2, h3, h4, h5, h6 {
    Testimonials Section - Large Quote Carousel
    ============================================ */
 .testimonials-section {
-    background-color: #1a2913;
+    background-color: #f8f6f0;
     margin: 0 auto;
     max-width: none;
     width: 100%;
@@ -1164,11 +1164,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonials-section .section-title {
-    color: #fff;
+    color: #0a0a0a;
 }
 
 .testimonials-section .section-eyebrow {
-    color: #f8d488;
+    color: #b8860b;
 }
 
 .testimonial-carousel {
@@ -1196,14 +1196,14 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-quote-mark {
     font-family: 'Playfair Display', serif;
     font-size: 6rem;
-    color: #f8d488;
+    color: #b8860b;
     line-height: 1;
     margin-bottom: 1rem;
     opacity: 0.5;
 }
 
 .testimonial-text {
-    color: #fff;
+    color: #0a0a0a;
     font-family: 'Playfair Display', serif;
     font-size: 1.6rem;
     font-style: italic;
@@ -1212,13 +1212,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonial-stars {
-    color: #f8d488;
+    color: #b8860b;
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
 
 .testimonial-author {
-    color: #f8d488;
+    color: #b8860b;
     font-weight: 500;
     font-size: 1.1rem;
 }
@@ -1234,7 +1234,7 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-arrow {
     background: none;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
+    color: #b8860b;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -1258,7 +1258,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(62, 62, 62, 0.3);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
